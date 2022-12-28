@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 import os
+import time
 files = os.listdir("/Users/ranisujith/Downloads")
 files = [f for f in files if os.path.isfile("/Users/ranisujith/Downloads"+'/'+f)]
 ext = []
@@ -14,10 +16,15 @@ for e in ext:
         continue
 
 for i in files:
-    print(i)
     e = os.path.splitext(i.replace(" ", ""))[1]
-    print(e)
     if e in ext:
-        os.system(f"cp /Users/ranisujith/Downloads/\"{i}\" /Users/ranisujith/Downloads/" + e.replace(".", ""))
-for f in files:
-    os.remove("/Users/ranisujith/Downloads/" + f)
+        try:
+            os.system(f"mv /Users/ranisujith/Downloads/\"{i}\" /Users/ranisujith/Downloads/" + e.replace(".", ""))
+        except:
+            continue
+
+
+print("Files Sorted ... ")
+time.sleep(2)
+os.system("clear")
+
