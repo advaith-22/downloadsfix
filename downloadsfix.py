@@ -19,8 +19,8 @@ for f in filesandfolders:
 # Getting all the file types available in the downloads folder
 ext = []
 for i in files:
-    extensions = os.path.splitext(i.replace(" ", ""))
-    ext.append(extensions[1])
+    name, extension = os.path.splitext(i.replace(" ", ""))
+    ext.append(extension)
 
 # Making a folder for each file type inside the downloads folder
 for e in ext:
